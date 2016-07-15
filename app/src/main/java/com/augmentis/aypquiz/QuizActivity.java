@@ -2,6 +2,7 @@ package com.augmentis.aypquiz;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,6 +14,7 @@ public class QuizActivity extends AppCompatActivity {
     Button falseButton;
 
     Button nextButton;
+    Button previousButton;
     TextView questionText;
 
     Question[] questions = new Question[]{
@@ -33,6 +35,7 @@ public class QuizActivity extends AppCompatActivity {
         trueButton = (Button) findViewById(R.id.true_button);
         falseButton = (Button) findViewById(R.id.false_button);
         nextButton = (Button) findViewById(R.id.next_button);
+        previousButton = (Button) findViewById(R.id.previous_button);
         questionText = (TextView) findViewById(R.id.text_question);
         currentIndex = 0;
         questionText.setText(questions[currentIndex].getQuestionId());
@@ -42,11 +45,24 @@ public class QuizActivity extends AppCompatActivity {
                 try {
                     currentIndex = ++currentIndex % questions.length;
                     questionText.setText(questions[currentIndex].getQuestionId());
-                } catch (Exception e) {
+                } catch (ArrayIndexOutOfBoundsException e) {
                     //int -2,147,483,648 to +2,147,483,647
-                    Toast.makeText(QuizActivity.this, "Over flow!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(QuizActivity.this, "Exception: "+ e, Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
 
+        previousButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    currentIndex = --currentIndex % questions.length;
+                    if (currentIndex < 0) currentIndex += 4;
+                    questionText.setText(questions[currentIndex].getQuestionId());
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    //int -2,147,483,648 to +2,147,483,647
+                    Toast.makeText(QuizActivity.this, "Exception: "+ e, Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
