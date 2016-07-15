@@ -6,25 +6,26 @@ package com.augmentis.aypquiz;
 public class Question {
     private int questionId;
     private boolean answer;
+    private boolean cheated = false;
 
     public Question(int questionId, boolean answer) {
         this.questionId = questionId;
         this.answer = answer;
     }
 
+    public boolean isCheated() {
+        return cheated;
+    }
+
+    public void setCheated(boolean cheated) {
+        this.cheated = cheated;
+    }
+
     public int getQuestionId() {
         return questionId;
     }
 
-    public void setQuestionId(int questionId) {
-        this.questionId = questionId;
-    }
-
     public boolean isAnswer() {
         return answer;
-    }
-
-    public void setAnswer(boolean answer) {
-        this.answer = answer;
     }
 }

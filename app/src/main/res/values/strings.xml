@@ -10,5 +10,10 @@
     <string name="question_2_Rawin">Rawin is happy?</string>        <!-- true -->
     <string name="question_3_math">2 + 2 = 10</string>              <!-- false -->
     <string name="question_4_mar">Mars does not have moon?</string>
-    <string name="previous_button">Previous</string> <!-- false -->
+    <string name="previous_button">Previous</string>
+    <string name="cheet_button">Cheat!!</string>
+    <string name="confirm_button">You really want to know the answer?</string>
+    <string name="answer_is_true">Amswer is true.</string>
+    <string name="answer_is_false">Answer is false.</string>
+    <string name="cheater_text">You are cheater!! :D</string> <!-- false -->
 </resources>

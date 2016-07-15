@@ -52,4 +52,12 @@
         android:drawablePadding="15dp"
         android:text="@string/previous_button" />
 
+    <Button
+        android:id="@+id/cheat_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cheet_button"
+        android:layout_gravity="center|bottom"/>
+
+
 </FrameLayout>
